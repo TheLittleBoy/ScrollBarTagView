@@ -12,7 +12,7 @@
 @interface ScrollBarTagView ()
 
 @property (nonatomic, weak) UIScrollView *scrollView;
-@property (nonatomic, weak) UIView *tagView;
+@property (nonatomic, weak) BaseTagView *tagView;
 @property (nonatomic, strong) UIImageView *scrollViewBarImgView;
 @property (nonatomic, copy) ScrollBlock scrollBlock;
 @property (nonatomic, assign) BOOL isStopHiddenAnimation;
@@ -36,7 +36,7 @@
         scrollBarTagView.scrollBlock = scrollBlock;
         scrollBarTagView.tagView = tagViewBlock();
         scrollBarTagView.tagView.hidden = YES;
-        
+        scrollBarTagView.tagView.superScrollView = scrollView;
         // setup tagView origin x
         CGRect newFrame = scrollBarTagView.tagView.frame;
         CGFloat tagViewX = CGRectGetWidth(scrollView.bounds) - CGRectGetWidth(scrollBarTagView.tagView.frame);
@@ -46,6 +46,8 @@
         // addObserver
         [scrollBarTagView.scrollViewBarImgView addObserver:scrollBarTagView forKeyPath:@"frame" options:NSKeyValueObservingOptionNew context:nil];
         [scrollBarTagView.scrollViewBarImgView addObserver:scrollBarTagView forKeyPath:@"alpha" options:NSKeyValueObservingOptionNew context:nil];
+        [scrollBarTagView.tagView addObserver:scrollBarTagView forKeyPath:@"isDragging" options:NSKeyValueObservingOptionNew context:nil];
+
         [scrollView.superview addSubview:scrollBarTagView.tagView];
         
         // objc runtime
@@ -100,7 +102,7 @@
 }
 
 - (void)hiddenTagViewAnimation {
-    if (!self.tagView.hidden && !self.isAnimation) {
+    if (!self.tagView.hidden && !self.isAnimation && !self.tagView.isDragging) {
         self.isStopHiddenAnimation = NO;
         self.isAnimation = YES;
         __weak typeof(self) weakSelf = self;
@@ -139,6 +141,15 @@
             [self.tagView.layer removeAllAnimations];
         }
         else if (!scrollViewBarImgView.alpha) {
+            [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(hiddenTagViewAnimation) object:nil];
+            [self performSelector:@selector(hiddenTagViewAnimation) withObject:nil afterDelay:0.5f];
+        }
+    }else if ([keyPath isEqualToString:@"isDragging"])
+    {
+        if (self.tagView.isDragging) {
+            [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(hiddenTagViewAnimation) object:nil];
+        }else
+        {
             [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(hiddenTagViewAnimation) object:nil];
             [self performSelector:@selector(hiddenTagViewAnimation) withObject:nil afterDelay:0.5f];
         }

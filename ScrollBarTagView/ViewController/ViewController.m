@@ -36,7 +36,7 @@
 
 - (void)setupScrollBarTagView {
     __weak typeof(self) weakSelf = self;
-    [ScrollBarTagView initWithScrollView:self.listTableView withTagView: ^UIView *{
+    [ScrollBarTagView initWithScrollView:self.listTableView withTagView: ^TagView *{
         TagView *tagView = [[TagView alloc] init];
         return tagView;
     } didScroll:^(id scrollBarTagView, TagView *tagView, CGFloat offset) {

@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseTagView.h"
 
 #define tagViewGap 10
 
-typedef UIView *(^TagViewBlock)();
+
+typedef BaseTagView *(^TagViewBlock)();
 typedef void (^ScrollBlock)(id scrollBarTagView, id tagView, CGFloat offset);
 
 @interface ScrollBarTagView : NSObject

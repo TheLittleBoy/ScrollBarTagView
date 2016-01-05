@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseTagView.h"
 
-@interface TagView : UIView
+@interface TagView : BaseTagView
 
 @property (weak, nonatomic) IBOutlet UILabel *addressLabel;
 

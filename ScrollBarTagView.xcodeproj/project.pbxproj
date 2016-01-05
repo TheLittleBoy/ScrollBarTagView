@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		040237301C3BC0AA00ACA894 /* BaseTagView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0402372F1C3BC0AA00ACA894 /* BaseTagView.m */; };
 		7EB7BE371C0D414F007CB933 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB7BE361C0D414F007CB933 /* main.m */; };
 		7EB7BE3A1C0D414F007CB933 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB7BE391C0D414F007CB933 /* AppDelegate.m */; };
 		7EB7BE421C0D414F007CB933 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7EB7BE411C0D414F007CB933 /* Assets.xcassets */; };
@@ -39,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0402372E1C3BC0AA00ACA894 /* BaseTagView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTagView.h; sourceTree = "<group>"; };
+		0402372F1C3BC0AA00ACA894 /* BaseTagView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTagView.m; sourceTree = "<group>"; };
 		7EB7BE321C0D414F007CB933 /* ScrollBarTagView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScrollBarTagView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EB7BE361C0D414F007CB933 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7EB7BE381C0D414F007CB933 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -173,6 +176,8 @@
 		7EB7BE8A1C0D43D7007CB933 /* TagView */ = {
 			isa = PBXGroup;
 			children = (
+				0402372E1C3BC0AA00ACA894 /* BaseTagView.h */,
+				0402372F1C3BC0AA00ACA894 /* BaseTagView.m */,
 				7EB7BE8B1C0D43D7007CB933 /* TagView.h */,
 				7EB7BE8C1C0D43D7007CB933 /* TagView.m */,
 				7EB7BE8D1C0D43D7007CB933 /* TagView.xib */,
@@ -314,6 +319,7 @@
 			files = (
 				7EB7BE881C0D4387007CB933 /* ViewController.m in Sources */,
 				7EB7BE8E1C0D43D7007CB933 /* TagView.m in Sources */,
+				040237301C3BC0AA00ACA894 /* BaseTagView.m in Sources */,
 				7EB7BE7B1C0D4251007CB933 /* ScrollBarTagView.m in Sources */,
 				7EB7BE3A1C0D414F007CB933 /* AppDelegate.m in Sources */,
 				7EB7BE371C0D414F007CB933 /* main.m in Sources */,
